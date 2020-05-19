@@ -10,7 +10,7 @@ title: Confused Coder
 description: My journey in unravelling the mysteries of Computer Science.
 github_username: abdulwahidgul24085
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "confused-coder"
+# github_repo: "confused-coder"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
@@ -35,8 +35,8 @@ url: "https://abdulwahidgul.me"
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-# baseurl: "/confused-coder" # the subpath of your site, e.g. "/blog".
-baseurl: "abdulwahidgul.me"
+baseurl: "/confused-coder" # the subpath of your site, e.g. "/blog".
+# baseurl: "abdulwahidgul.me"
 
 # Github and twitter are optional:
 minima:
