@@ -39,8 +39,9 @@ baseurl: "/confused-coder" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: abdulwahidgul
+    github: abdulwahidgul24085
+    kaggle: restless1991
 
 # Set this to true to get LaTeX math equation support
 use_math: 
