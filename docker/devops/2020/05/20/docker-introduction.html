@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Enter the World of Docker | Abdul Wahid Gul</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Enter the World of Docker" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer." />
+<meta property="og:description" content="A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer." />
+<link rel="canonical" href="https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html" />
+<meta property="og:url" content="https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html" />
+<meta property="og:site_name" content="Abdul Wahid Gul" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer.","@type":"BlogPosting","headline":"Enter the World of Docker","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://abdulwahidgul.me/feed.xml" title="Abdul Wahid Gul" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Enter the World of Docker | Abdul Wahid Gul</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Enter the World of Docker" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer." />
+<meta property="og:description" content="A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer." />
+<link rel="canonical" href="https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html" />
+<meta property="og:url" content="https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html" />
+<meta property="og:site_name" content="Abdul Wahid Gul" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer.","@type":"BlogPosting","headline":"Enter the World of Docker","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://abdulwahidgul.me/docker/devops/2020/05/20/docker-introduction.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://abdulwahidgul.me/feed.xml" title="Abdul Wahid Gul" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Abdul Wahid Gul</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Enter the World of Docker</h1><p class="page-description">A general introduction to the Docker echo system. The ideas and terminologies. On what Docker is, and how it functions from a conceptual level. How is useful to the modern developer.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-20T00:00:00-05:00" itemprop="datePublished">
+        May 20, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#docker">docker</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#devops">devops</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#introduction">Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#world-before-docker">World before Docker</a></li>
+<li class="toc-entry toc-h2"><a href="#world-with-docker">World with Docker</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#what-is-docker">What is Docker?</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#images">Images</a></li>
+<li class="toc-entry toc-h2"><a href="#containers">Containers</a></li>
+<li class="toc-entry toc-h2"><a href="#volume">Volume</a></li>
+<li class="toc-entry toc-h2"><a href="#networks">Networks</a></li>
+<li class="toc-entry toc-h2"><a href="#docker-and-its-files">Docker and its files</a></li>
+<li class="toc-entry toc-h2"><a href="#dockerfile">Dockerfile</a></li>
+<li class="toc-entry toc-h2"><a href="#docker-compose">Docker-compose</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
+</ul><h1 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+<p>The idea of having an isolated environment is nothing new. To keep your computer clear of all clutter is produced by installing programming language, framework, and databases. This is something you worry about when you have passed the beginning of your programming journey. There have been always been solutions for you to achieve this, in the modern programming paradigm. But as programming evolves and get’s better. So does the tool to help you write programs get better as well.</p>
+
+<h2 id="world-before-docker">
+<a class="anchor" href="#world-before-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>World before Docker</h2>
+<p>In the past, we had solutions that would introduce a completely virtual environment. This will be an isolated OS on your system with its operating system, fixed and expendable resources. This was a viable solution, and it is still used in some case studies these days. But most of us don’t need such a resource hugging solution. Anyone that has run something like <a href="https://www.virtualbox.org/">Virtualbox</a> or similar solution would know what I mean. We also had solutions like <a href="https://www.vagrantup.com/">vagrant</a>. But they also had their problems of being efficient you can read up more on them on the internet. I personally had worked with Virtualbox and found it much easier to work with than Vagrant. But I might have had been a younger develop back than. But that should speak volumes for its developer-friendly nature.</p>
+
+<h2 id="world-with-docker">
+<a class="anchor" href="#world-with-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>World with Docker</h2>
+<p>Enter Docker. So how has the world changed? Docker allows its users to the underline kernel of the OS and just isolate the parts of the application that is unique. This greatly reduces the resources intensive nature of virtualization, with some additional perks. You can mimic your development environment without worrying about the machine you are developing on. It also lets you pass around your environment with your team and they can start off with a similar environment instantaneously. It is also helpful for getting your junior and new recruits without letting them worry about setup.</p>
+
+<h1 id="what-is-docker">
+<a class="anchor" href="#what-is-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Docker?</h1>
+<p>Docker is exactly like a virtual environment but what is so powerful about it, as compared to a VirtualBox solution. It lets you use the kernel of your base operating system. Since you already have it installed. Then why should you waste resources by reinstalling it? It has some key terminologies, learning it would help you search on your journey when you will be learning it.</p>
+<ol>
+  <li>Images</li>
+  <li>Containers</li>
+  <li>Volumes</li>
+  <li>Networks</li>
+</ol>
+
+<h2 id="images">
+<a class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h2>
+<p>This is the core of your application. Just like when you are deploying an application to a server. You have to get hosting from AWS, or Azure. You select your VM (virtual machine), and select a Linux flavor. If it is a Linux server? (Docker works with windows based images as well.) Then you install all of your required programming languages and tools (databases, queueing system, etc.). An image is that isolation in Docker. You can backup your VM and spin-up other VMs with it. The same concept applies to images in docker. You can use an image to create multiple containers. An image in Docker can be ubuntu, fedora, or alpine based. I will talk more about my choice of Linux version Alpine more later in this article.</p>
+
+<h2 id="containers">
+<a class="anchor" href="#containers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Containers</h2>
+<p>Following along the same analogy of VMs. When you have the VM configured and installed all of your application dependency. Know that code of your application has to be pulled in to the VM and some configuration has to be made of it to run on the VM. This running of your application is equal to a  container in the Docker universe. What Docker lets you do it encapsulate your code into the container.</p>
+
+<h2 id="volume">
+<a class="anchor" href="#volume" aria-hidden="true"><span class="octicon octicon-link"></span></a>Volume</h2>
+<p>When you run a container all of your application’s state is stored in the container. If you remove your container all the files in that container will be removed. What this means is that, if your application has uploaded images or files while the container you will lose them. Also, when you have a database running as a container, all of your databases active will be removed with the container. This is scary. But don’t worry. Docker lets you mount a folder on to your system inside the container. What it does, it that it saves, all of your disk activity on to your system. Know if you remove the container, or even the image, is safe and sound. When you recreate the container you can carry on from where you have left off. Pretty cool right?</p>
+
+<h2 id="networks">
+<a class="anchor" href="#networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Networks</h2>
+<p>Since Docker is its own light computer running inside your VM or the local machine. It maps its ports for communication to the outside world. When I say it does that, I mean you have to do it. It is part of the Docker configuration process. You can create a network within Docker that will help your container communicate on a shared resource machine(that is everything running on the same machine). You can also create an overlay network in docker that spans over multiple machines.</p>
+
+<h2 id="docker-and-its-files">
+<a class="anchor" href="#docker-and-its-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker and its files</h2>
+<p>So how does the alchemy of the Docker voodoo work? Well, it is quite simple if you understand the key points of Docker, and what they are. Since the docker entire creation process is working with config files. You don’t need programming for the most part of working with docker. Two key config files that you work are defined as follows.</p>
+
+<h2 id="dockerfile">
+<a class="anchor" href="#dockerfile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dockerfile</h2>
+<p>A file name <code class="highlighter-rouge">Dockerfile</code> with no extension is where you create the image. refer to the <a href="#Images">Image</a> heading. You can have a different name. The Dockerfile is just the default format. If you choose to have a different name, you need to specify the filename when you are running the Docker commands.</p>
+
+<h2 id="docker-compose">
+<a class="anchor" href="#docker-compose" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker-compose</h2>
+<p>Everything in Docker is an individual image. Databases, programming language, frameworks, etc. They function independently. If you want to run multiple images an example would be python running on alpine Linux base image, using Django as the web backend framework, Postgres, or MySql as a primary database, Redis as a caching database, and job scheduler. You can define all of them in the <code class="highlighter-rouge">docker-compose.yml</code> file. The format of this file <code class="highlighter-rouge">YML</code> or <code class="highlighter-rouge">YMAL</code>. It does not matter which extension you use. Whatever you specify in the docker-compose file will be on the same network. You don’t need to link them manually. But if you choose for it to be part of a predefined network. Or let other containers connect with the resources created by a docker-compose file you can do that within the docker-compose file.</p>
+<blockquote>
+  <p>Always remember to use the internal ports when you have created a connection. Since all of them are on the same network. You can use the service name instead of an IP as your host. This will help you in case if you recreate a container, the IP will be taken care of by Docker.</p>
+</blockquote>
+
+<h1 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>
+<p>In future posts, I will talk in-depth on how to work with each aspect of the Docker environment. I will dedicate a post for each of the main ideas in the Docker environment. If you have any question comment below or feel free to <a href="mailto:admin@abdulwahidgul.me">email me @</a></p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="abdulwahidgul24085/"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/docker/devops/2020/05/20/docker-introduction.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>My journey in unravelling the mysteries of Computer Science.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/abdulwahidgul24085" title="abdulwahidgul24085"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/abdulwahidgul" title="abdulwahidgul"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
