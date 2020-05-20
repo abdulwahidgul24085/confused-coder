@@ -48,4 +48,4 @@ Everything in Docker is an individual image. Databases, programming language, fr
 > Always remember to use the internal ports when you have created a connection. Since all of them are on the same network. You can use the service name instead of an IP as your host. This will help you in case if you recreate a container, the IP will be taken care of by Docker.
 
 # Conclusion
-In future posts, I will talk in-depth on how to work with each aspect of the Docker environment. I will dedicate a post for each of the main ideas in the Docker environment. If you have any question feel free to [email me @](mailto:admin@abdulwahidgul.me)
+In future posts, I will talk in-depth on how to work with each aspect of the Docker environment. I will dedicate a post for each of the main ideas in the Docker environment. If you have any question feel free to leave a comment or for a detail converstaion [email me @](mailto:admin@abdulwahidgul.me)
